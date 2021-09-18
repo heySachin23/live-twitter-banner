@@ -61,7 +61,8 @@ async function drawImage(banner, img1, img2, img3, img4, img5) {
             console.log("done");
         })
     })
-
+    const base64 = await fs.readFileSync('banner-1500x500.png', { encoding: 'base64' });
+    await twitterClient.accountsAndUsers.accountUpdateProfileBanner({banner: base64});
 }
 
 async function start() {
